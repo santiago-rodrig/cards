@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"io/ioutil"
+)
 
 // Create a new type of 'deck'
 // which is a slice of strings
@@ -41,4 +44,19 @@ func (d *deck) deal(n uint) (ret deck) {
 	ret = (*d)[:n]
 	*d = (*d)[n:]
 	return
+}
+
+func (d *deck) toString() (result string) {
+	for i, card := range *d {
+		if i != len(*d)+1 {
+			result += card + "\n"
+		} else {
+			result += card
+		}
+	}
+	return
+}
+
+func (d *deck) saveToFile(filename string) error {
+	return ioutil.WriteFile(filename, []byte(d.toString()), 0644)
 }

@@ -1,11 +1,12 @@
 package main
 
-import "fmt"
-
 func main() {
 	cards := newDeck()
-	//cards.print()
-	hand := cards.deal(5)
-	fmt.Printf("hand: %d\n", len(hand))
-	fmt.Printf("cards: %d\n", len(cards))
+	Must(cards.saveToFile("cards.txt"))
+}
+
+func Must(err error) {
+	if err != nil {
+		panic(err)
+	}
 }
