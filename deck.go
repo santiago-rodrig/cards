@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"io/ioutil"
+	"strings"
 )
 
 // Create a new type of 'deck'
@@ -59,4 +60,14 @@ func (d *deck) toString() (result string) {
 
 func (d *deck) saveToFile(filename string) error {
 	return ioutil.WriteFile(filename, []byte(d.toString()), 0644)
+}
+
+func newDeckFromFile(filename string) (deck, error) {
+	bs, err := ioutil.ReadFile(filename)
+	if err != nil {
+		return nil, err
+	}
+	str := string(bs)
+	strs := strings.Split(str, "\n")
+	return deck(strs), nil
 }
