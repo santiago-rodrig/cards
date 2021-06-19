@@ -1,4 +1,4 @@
-package card
+package cards
 
 import "fmt"
 
@@ -20,4 +20,18 @@ func (err ErrOutOfBoundsValue) Error() string {
 
 func NewErrOutOfBoundsValue(value Value) ErrOutOfBoundsValue {
 	return ErrOutOfBoundsValue(value)
+}
+
+type ErrNoCardsInDeck struct {
+	Deck Deck
+}
+
+func (err ErrNoCardsInDeck) Error() string {
+	return "the deck has no cards to take from"
+}
+
+func NewErrNoCardsInDeck(deck Deck) ErrNoCardsInDeck {
+	return ErrNoCardsInDeck{
+		Deck: deck,
+	}
 }

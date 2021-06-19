@@ -1,10 +1,10 @@
-package card
+package cards
 
 import "testing"
 
 func TestNewCard(t *testing.T) {
-	t.Run("proper value and suit for a card", func(t *testing.T) {
-		t.Run("creates a card successfully", func(t *testing.T) {
+	t.Run("proper value and suit for a cards", func(t *testing.T) {
+		t.Run("creates a cards successfully", func(t *testing.T) {
 			suit := Clubs
 			value := Ace
 			got, _ := NewCard(value, suit)
@@ -71,20 +71,4 @@ func TestCard(t *testing.T) {
 			}
 		})
 	})
-}
-
-func assertCardHasTheRightValueAndSuit(t *testing.T, card *Card, suit Suit, value Value) {
-	t.Helper()
-	if card.Suit != suit {
-		t.Errorf("%q is not the same as %q", card.Suit, suit)
-	} else if card.Value != value {
-		t.Errorf("%q is not the same as %q", card.Value, value)
-	}
-}
-
-func assertError(t *testing.T, errGot, errWant error) {
-	t.Helper()
-	if errGot != errWant {
-		t.Errorf("expected %q to equal %q", errGot, errWant)
-	}
 }
