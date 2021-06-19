@@ -7,7 +7,7 @@ import "fmt"
 type deck []string
 
 func newDeck() (cards deck) {
-	cardSuits := []string{"Spades", "Hearts", "Diamonds"}
+	cardSuits := []string{"Spades", "Hearts", "Diamonds", "Clubs"}
 	cardValues := []string{
 		"Ace",
 		"Two",
@@ -35,4 +35,10 @@ func (d deck) print() {
 	for i, v := range d {
 		fmt.Println(i, v)
 	}
+}
+
+func (d *deck) deal(n uint) (ret deck) {
+	ret = (*d)[:n]
+	*d = (*d)[n:]
+	return
 }
