@@ -5,7 +5,7 @@ Go program that **prints random cards to STDOUT**.
 ## Installation
 
 ```bash
-go install github.com/santiago-rodrig/cards
+GO111MODULE=off go get github.com/santiago-rodrig/cards
 ```
 
 **Alternatively**, you can also download the binary
