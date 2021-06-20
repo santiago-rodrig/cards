@@ -12,7 +12,7 @@ go install github.com/santiago-rodrig/cards
 that comes with
 [the release](https://github.com/santiago-rodrig/cards/releases/tag/v1.0.0)
 and place it
-somewhere in your path.
+somewhere in your PATH.
 
 ## License
 
