@@ -3,7 +3,6 @@ package main
 import (
 	"flag"
 	"fmt"
-	"github.com/santiago-rodrig/cards"
 	"os"
 	"strconv"
 )
@@ -28,7 +27,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	deck := cards.NewDeck()
+	deck := NewDeck()
 
 	for i := 0; i < arg; i++ {
 		card, err := deck.PickRandomCard()
